@@ -18,7 +18,9 @@ app.set("view engine" , "ejs")
 app.use(express.static(__dirname + '/public'));
 
 const indexRouter = require('./routes/index')
+const indexlogRouter = require('./routes/index_log')
 
 app.use('/' , indexRouter)
+app.use('/log' , indexlogRouter)
 
 app.listen(port)

@@ -1,0 +1,51 @@
+<nav>
+    <div class="menu1">
+        <a href="/collection">
+            <h1>Collection</h1>
+        </a>
+        <a href="/exchange">
+            <h1>Exchanges</h1>
+        </a>
+        <a href="/redeem">
+            <h1>Redeem</h1>
+        </a>
+        <a href="/panel">
+            <h1>User panel</h1>
+        </a>
+        <a href="/">
+            <h1>Log out</h1>
+        </a>
+    </div>
+    <div class="menu2">
+        <a href="#home" onclick=menu()>
+            <h1>Menu</h1>
+        </a>
+        <div id="Links">
+            <a href="/collection">
+                <h1>Collection</h1>
+            </a>
+            <a href="/exchange">
+                <h1>Exchanges</h1>
+            </a>
+            <a href="/redeem">
+                <h1>Redeem</h1>
+            </a>
+            <a href="/panel">
+                <h1>User panel</h1>
+            </a>
+            <a href="/">
+                <h1>Log out</h1>
+            </a>
+        </div>
+    </div>
+</nav>
+<script>
+    function menu() {
+    var x = document.getElementById("Links");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+}
+</script>

@@ -104,13 +104,32 @@ p {
     min-height: 100px;
 }
 
+.menu {
+    overflow: hidden;
+    background-color: #567d46;
+    border: 5px solid white;
+    text-align: center;
+    margin: auto auto;
+    max-width: 750px;
+    display: flex;
+}
+
+.menu a {
+    background-color: #567d46;
+    border: 0px;
+    color: black;
+    display: block;
+    text-align: center;
+    margin: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
 @media screen and (min-width : 1001px) {
     article {
         padding: 50px 50px;
-        width: 900px;
         background-color: #567d46;
         border: 5px solid white;
-        margin: auto auto;
         margin-top: 50px;
         min-height: 100px;
     }
@@ -123,8 +142,7 @@ p {
     article img {
         width: 100%;
         height: auto;
-        max-width: 800px;
-        margin-left: 50px;
+        margin: 0 auto;
     }
 }
 
@@ -153,7 +171,7 @@ p {
 }
 
 
-@media screen and (min-width : 601px) {
+@media screen and (min-width : 801px) {
 
     .menu1 {
         overflow: hidden;
@@ -161,7 +179,7 @@ p {
         border: 5px solid white;
         text-align: center;
         margin: auto auto;
-        width: 550px;
+        width: 750px;
         display: flex;
     }
 
@@ -174,7 +192,6 @@ p {
         margin: auto;
         padding-left: 30px;
         padding-right: 30px;
-
     }
 
     a:hover {
@@ -186,7 +203,7 @@ p {
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .menu2 {
         overflow: hidden;
         background-color: #567d46;
