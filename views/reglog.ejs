@@ -7,11 +7,7 @@
 </head>
 
 <body>
-    <header>
-        <banner>
-            <img alt="Banner" , src="background.jpg">
-        </banner>
-    </header>
+    <%- include ('partials/banner') %>
     <article>
         <div style="display: flex;">
             <form class = "form-left" action="/reglog/reg" method="post">
@@ -43,5 +39,22 @@
         </div>
     </article>
 </body>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const error = urlParams.get('error');
+    if (error) {
+      switch (error) {
+        case 'passwords-do-not-match':
+          alert('The passwords do not match. Please try again.');
+          break;
+        case 'registration-failed':
+          alert('Registration failed. Please try again later.');
+          break;
+        default:
+          alert('An unknown error occurred. Please try again later.');
+      }
+    }
+  </script>
 
 </html>
