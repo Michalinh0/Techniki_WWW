@@ -125,6 +125,46 @@ p {
     padding-right: 30px;
 }
 
+.formwrap {
+    display: block;
+    margin: auto auto;
+    text-align: center;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-left, .form-right {
+    width: 50%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+input {
+    height: 40px;
+    width: 200px;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.custom-button {
+    display: inline-block;
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 25px;
+    border: none;
+    cursor: pointer;
+}
+
 @media screen and (min-width : 1001px) {
     article {
         padding: 50px 50px;

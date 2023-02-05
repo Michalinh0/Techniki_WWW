@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/styles/basic.css"/>
+</head>
+
+<body>
+    <header>
+        <banner>
+            <img alt="Banner" , src="background.jpg">
+        </banner>
+    </header>
+    <article>
+        <div style="display: flex;">
+            <form class = "form-left" action="/reglog/reg" method="post">
+                <h1>Don't have an account? Register here!</h1>
+                <h4>Login</h4>
+                <input type="text" name="Login">
+                <br>
+                <h4>E-mail</h4>
+                <input type="email" name="Email">
+                <br>
+                <h4>Password</h4>
+                <input type="password" name="Password">
+                <br>
+                <h4>Repeat Password</h4>
+                <input type="password" name="PasswordRepeat">
+                <br>
+                <button class="custom-button" type="submit">Register</button>
+            </form>            
+            <form class = "form-right" action="/reglog/log" method="post">
+                <h1>Already an user? Log in here!</h1>
+                <h4>E-mail</h4>
+                <input type="email" name="Email">
+                <br>
+                <h4>Password</h4>
+                <input type="password" name="Password">
+                <br>
+                <button class="custom-button" type="submit">Login</button>
+            </form>
+        </div>
+    </article>
+</body>
+
+</html>
