@@ -17,14 +17,14 @@ router.post('/log' , (req , res) =>{
     var password = req.body.Password
     console.log(mail)
     console.log(password)
-    let sql = `SELECT * FROM Uzytkownicy WHERE email = ? AND password = ?`;
+    let sql = `SELECT * FROM Uzytkownicy WHERE email = ? AND Haslo = ?`;
     req.db.get(sql, [mail, password], (err, row) => {
     if (err) {
       console.error(err.message);
     }
     if (row) {
       req.session.user = {
-        email: email
+        mail: mail
       };
       res.redirect('/log');
     } else {
