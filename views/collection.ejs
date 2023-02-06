@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/styles/basic.css"/>
+</head>
+
+<body>
+    <%- include ('partials/banner') %>
+    <%- include ('partials/navlog') %>
+    <article>
+        <% data.forEach(function(item) { %>
+            <div class = "card">
+              <img src="img/<%= item.NazwaPliku %>" alt="<%= item.Nazwa %>">
+              <h1><%= item.Nazwa %></h1>
+              <h1>Currently owned : <%= item.count %></h1>
+            </div>
+          <% }); %>
+    </article>
+</body>

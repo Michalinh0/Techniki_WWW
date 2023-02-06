@@ -25,7 +25,6 @@ router.post('/reg' , (req , res) =>{
         return;
       }
       if (row.count > 0) {
-        // Email or login already exists, redirect back to the register page with an error message
         return res.redirect('/reglog?error=registration-failed');
       }
     });
@@ -58,9 +57,10 @@ router.post('/log' , (req , res) =>{
       req.session.user = {
         mail: mail
       };
+      console.log("Assigned session")
       res.redirect('/log');
     } else {
-      res.redirect('/');
+      res.redirect('/reglog?error=combination-not-found');
     }
 });
 });

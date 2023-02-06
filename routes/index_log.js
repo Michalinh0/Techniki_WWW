@@ -4,7 +4,7 @@ const loginMiddleware = require('../middleware/loginMiddleware')
 
 router.use(loginMiddleware)
 
-router.get('/' , (req , res) =>{
+router.get('/' , loginMiddleware , (req , res) =>{
     res.render('index_log')
 });
 

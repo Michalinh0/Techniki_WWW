@@ -165,6 +165,17 @@ input {
     cursor: pointer;
 }
 
+.card {
+    width: 400px;
+    max-width: 100%;
+    display: inline-block;
+    margin: 50px 50px;
+}
+
+.card img {
+    width: 100%;
+}
+
 @media screen and (min-width : 1001px) {
     article {
         padding: 50px 50px;
