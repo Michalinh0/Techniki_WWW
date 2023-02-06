@@ -13,9 +13,6 @@ router.get('/' , loginMiddleware, (req , res) =>{
             console.error(err)
         }
         else {
-            for(var i = 0; i < data.length; i++) {
-                console.log (data[i]);
-              }
             res.render('collection' , {data: data})
         }
     });

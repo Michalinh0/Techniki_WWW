@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/styles/basic.css"/>
+</head>
+
+<body>
+    <%- include ('partials/banner') %>
+    <%- include ('partials/navlog') %>
+    <article>
+        <h1>Results</h1>
+        <table style="width:50%; margin: 0 auto; text-align: center;">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if (users) { %>
+                <% users.forEach(function(user) { %>
+                  <tr>
+                    <td style="font-size: 20px;"><%= user.Login %></td>
+                    <td><a href="/offer-exchange?username=<%= user.Login %>&card=<%= selectedOption %>"></a><button class="custom-button">Offer exchange</button></td>
+                  </tr>
+                <% }); %>
+              <% } %>
+            </tbody>
+          </table>
+    </article>
+</body>

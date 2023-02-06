@@ -147,7 +147,7 @@ form {
     text-align: center;
 }
 
-input {
+input , select{
     height: 40px;
     width: 200px;
     font-size: 20px;

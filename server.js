@@ -30,11 +30,13 @@ const indexlogRouter = require('./routes/index_log')
 const redeemRouter = require('./routes/redeem')
 const reglogRouter = require('./routes/reglog')
 const collectionRouter = require('./routes/collection')
+const exchangeRouter = require('./routes/exchange')
 
 app.use('/' , indexRouter)
 app.use('/log' , indexlogRouter)
 app.use('/redeem' , redeemRouter)
 app.use('/reglog' , reglogRouter)
 app.use('/collection' , collectionRouter)
+app.use('/exchange' , exchangeRouter)
 
 app.listen(port)

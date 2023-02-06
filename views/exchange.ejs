@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/styles/basic.css"/>
+</head>
+
+<body>
+    <%- include ('partials/banner') %>
+    <%- include ('partials/navlog') %>
+    <article>
+        <h1>Which card are you looking for?</h1>
+        <form action="/exchange/search" method="get">
+            <select name="selectedOption">
+              <% options.forEach(function(option) { %>
+                <option value="<%= option.Nazwa %>"><%= option.Nazwa %></option>
+              <% }); %>
+            </select>
+            <button class= "custom-button" type="submit">Search</button>
+          </form>
+    </article>
+</body>
