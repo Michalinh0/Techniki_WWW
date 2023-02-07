@@ -6,7 +6,7 @@ const databaseMiddleware = require('../middleware/databaseMiddleware')
 router.use(loginMiddleware)
 router.use(databaseMiddleware)
 
-router.get('/', function (req, res) {
+router.get('/', loginMiddleware, function (req, res) {
     req.db.all('SELECT Nazwa , IDKarty FROM Karty', function (err, rows) {
       if (err) {
         console.error(err.message);
@@ -16,10 +16,10 @@ router.get('/', function (req, res) {
     });
   });
 
-  router.get('/search', function (req, res) {
+  router.get('/search',loginMiddleware, function (req, res) {
     var card = req.query.selectedOption;
-    let sql = "SELECT Login FROM Kolekcja GROUP BY Login, IDKarty HAVING COUNT(IDKarty) >= 2;";
-    req.db.all(sql, function (err, rows) {
+    let sql = "SELECT Login FROM Kolekcja WHERE IDKarty = ? GROUP BY Login, IDKarty HAVING COUNT(IDKarty) >= 2;";
+    req.db.all(sql, [card] , function (err, rows) {
       if (err) {
         console.error(err.message);
       } else {
@@ -29,7 +29,7 @@ router.get('/', function (req, res) {
     });
   });
 
-router.get('/offer', function (req, res) {
+router.get('/offer',loginMiddleware , function (req, res) {
   var username = req.query.username;
   var card = req.query.card;
   console.log(username + " " + card)
@@ -51,7 +51,7 @@ router.post('/', function(req, res) {
   var card = req.body.selectedOption;
   console.log(username2 +" " + card2)
   let sql = "INSERT INTO Wymiany (Login1, IDKarty1, Login2, IDKarty2, Status) VALUES ((SELECT Login FROM Uzytkownicy WHERE Email = ?), ?, ?, ?, 'Pending')";
-  req.db.run(sql, [req.session.user.mail, card , username2 , card], function(err) {
+  req.db.run(sql, [req.session.user.mail, card , username2 , card2], function(err) {
     if (err) {
       console.error(err.message);
       return;

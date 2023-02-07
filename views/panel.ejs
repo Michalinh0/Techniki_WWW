@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/styles/basic.css"/>
+</head>
+
+<body>
+    <%- include ('partials/banner') %>
+    <%- include ('partials/navlog') %>
+    <article>
+        <h1 style = "font-size: 80px;">Welcome <%= login %></h1>
+        <h1 style = "font-size: 50px;">Pending exchanges</h1>
+        <table style="width:50%; margin: 0 auto; text-align: center;">
+            <thead>
+                <tr>
+                    <th>Card offered</th>
+                    <th>Exchangee</th>
+                    <th>Card wanted</th>
+                    <th>Accept</th>
+                    <th>Decline</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% rows.forEach(function(row) { %>
+                    <tr>
+                        <td><%= row.IDKarty1 %></td>
+                        <td><%= row.Login2 %></td>
+                        <td><%= row.IDKarty2 %></td>
+                        <td>
+                            <form action="/panel/accept" method="post">
+                                <input type="hidden" name="username" value="<%= row.Login1 %>">
+                                <input type="hidden" name="card" value="<%= row.IDKarty1 %>">
+                                <input type="hidden" name="username2" value="<%= row.Login2 %>">
+                                <input type="hidden" name="card2" value="<%= row.IDKarty2 %>">
+                            <button class= "custom-button" type="submit">Accept</button>
+                          </form>
+                        </td>
+                        <td>
+                          <form action="/panel/decline" method="post">
+                            <input type="hidden" name="username" value="<%= row.Login1 %>">
+                            <input type="hidden" name="card" value="<%= row.IDKarty1 %>">
+                            <input type="hidden" name="username2" value="<%= row.Login2 %>">
+                            <input type="hidden" name="card2" value="<%= row.IDKarty2 %>">
+                            <button class= "custom-button" type="submit">Decline</button>
+                          </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </article>
+</body>
