@@ -23,7 +23,7 @@
                 <% users.forEach(function(user) { %>
                   <tr>
                     <td style="font-size: 20px;"><%= user.Login %></td>
-                    <td><a href="/offer-exchange?username=<%= user.Login %>&card=<%= selectedOption %>"></a><button class="custom-button">Offer exchange</button></td>
+                    <td><a href="/exchange/offer?username=<%= user.Login %>&card=<%= selectedOption %>"><button class="custom-button">Offer exchange</button></a></td>
                   </tr>
                 <% }); %>
               <% } %>

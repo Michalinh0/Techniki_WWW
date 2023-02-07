@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/styles/basic.css"/>
+</head>
+
+<body>
+    <%- include ('partials/banner') %>
+    <article>
+        <form action="/exchange" method="post">
+            <input type="hidden" name="username" value="<%= username %>">
+            <input type="hidden" name="card" value="<%= card %>">
+            <select name="selectedOption">
+                <% options.forEach(function(option) { %>
+                  <option value="<%= option.IDKarty %>"><%= option.IDKarty %></option>
+                <% }); %>
+              </select>
+            <button class= "custom-button" type="submit">Offer</button>
+          </form>
+    </article>
+</body>
+
+</html>

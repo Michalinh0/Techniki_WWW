@@ -14,7 +14,7 @@
         <form action="/exchange/search" method="get">
             <select name="selectedOption">
               <% options.forEach(function(option) { %>
-                <option value="<%= option.Nazwa %>"><%= option.Nazwa %></option>
+                <option value="<%= option.IDKarty %>"><%= option.Nazwa %></option>
               <% }); %>
             </select>
             <button class= "custom-button" type="submit">Search</button>
