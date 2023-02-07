@@ -30,12 +30,7 @@ router.post('/accept' , (req , res) =>{
     const login2 = req.body.username2;
     const idKarty2 = req.body.card2;
 
-    console.log(login1)
-    console.log(idKarty1)
-    console.log(login2)
-    console.log(idKarty2)
 
-    console.log("Entered accept");
 
     req.db.run("UPDATE Wymiany SET Status = 'Accepted' WHERE Login1 = ? AND IDKarty1 = ? AND Login2 = ? AND IDKarty2 = ?", [login1, idKarty1, login2, idKarty2], (err) => {
         if (err) {
@@ -71,12 +66,6 @@ router.post('/decline' , (req , res) =>{
     const login2 = req.body.username2;
     const idKarty2 = req.body.card2;
 
-    console.log(login1)
-    console.log(idKarty1)
-    console.log(login2)
-    console.log(idKarty2)
-
-    console.log("Entered decline");
 
     req.db.run("UPDATE Wymiany SET Status = 'Declined' WHERE Login1 = ? AND IDKarty1 = ? AND Login2 = ? AND IDKarty2 = ?", [login1, idKarty1, login2, idKarty2], (err) => {
         if (err) {

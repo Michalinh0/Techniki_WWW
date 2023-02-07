@@ -14,7 +14,6 @@ router.post('/', async (req, res) => {
     var number = parseInt(req.body.inputNumber);
     var login;
 
-    console.log("Beginning " + req.session.user.mail);
 
     try {
         const lsql = "SELECT Login from Uzytkownicy where Email = ?";
@@ -24,15 +23,11 @@ router.post('/', async (req, res) => {
                 else resolve(rows);
             });
         });
-        console.log("It's done");
-        console.log(rows);
         login = rows.Login;
     } catch (err) {
-        console.log("Crashes here");
         console.error(err);
     }
 
-    console.log("login = " + login);
 
     async function isValidNumber(number, rowsCount) {
         try {
@@ -42,7 +37,6 @@ router.post('/', async (req, res) => {
                     else resolve(rows);
                 });
             });
-            console.log("Rows = " + rows);
             return number.toString().length === 10 && number.toString().startsWith('23') && 0 < number % 100 <= rowsCount && rows == undefined;
         } catch (err) {
             console.error(err);
@@ -56,11 +50,8 @@ router.post('/', async (req, res) => {
                 else resolve(row);
             });
         });
-        console.log(row);
         const rowsCount = row.count;
-        console.log(rowsCount);
         if (await isValidNumber(number, rowsCount)) {
-            console.log("Login before insert: " + login);
             const sql = "INSERT INTO Kolekcja Values ( ? , ? , ? )";
             await new Promise((resolve, reject) => {
                 req.db.run(sql, [number, number % 100, login], function (err) {
@@ -68,14 +59,12 @@ router.post('/', async (req, res) => {
                         console.error(err.message);
                         reject(err);
                     } else {
-                        console.log("Success");
                         resolve();
                     }
                 });
             });
             res.redirect('/redeem');
         } else {
-            console.log("Failure");
             res.redirect('/redeem');
         }
     } catch (err) {

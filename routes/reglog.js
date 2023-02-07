@@ -46,8 +46,6 @@ router.post('/reg' , (req , res) =>{
 router.post('/log' , (req , res) =>{
     var mail = req.body.Email
     var password = req.body.Password
-    console.log(mail)
-    console.log(password)
     let sql = `SELECT * FROM Uzytkownicy WHERE email = ? AND Haslo = ?`;
     req.db.get(sql, [mail, password], (err, row) => {
     if (err) {
@@ -57,7 +55,6 @@ router.post('/log' , (req , res) =>{
       req.session.user = {
         mail: mail
       };
-      console.log("Assigned session")
       res.redirect('/log');
     } else {
       res.redirect('/reglog?error=combination-not-found');
